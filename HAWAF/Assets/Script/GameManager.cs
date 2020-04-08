@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public float playerSpeed;
     public int playerRotationSpeed;
+    public int buttonNumber = 0;
 
     private void Awake()
     {
