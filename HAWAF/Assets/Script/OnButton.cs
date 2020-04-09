@@ -24,6 +24,5 @@ public class OnButton : MonoBehaviour
         GetComponentInParent<GridManager>().GetProposition(actualButton);
         GetComponentInParent<GridManager>().DrawLine(actualButton);
         GetComponent<Image>().color = Color.red;
-        
     }
 }

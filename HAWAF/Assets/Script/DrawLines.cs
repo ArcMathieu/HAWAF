@@ -26,7 +26,6 @@ public class DrawLines : MonoBehaviour
         imageRectTransform.position = pointA * GetComponentInParent<GridManager>().buttonSize + transform.parent.position;
         float angle = Mathf.Atan2(differenceVector.y, differenceVector.x) * Mathf.Rad2Deg;
         imageRectTransform.rotation = Quaternion.Euler(0, 0, angle);
-        Debug.Log(angle);
     }
 
     // Update is called once per frame
