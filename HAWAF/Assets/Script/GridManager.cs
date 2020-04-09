@@ -12,6 +12,7 @@ public class GridManager : MonoBehaviour
     public GameObject Line;
     public bool solved = false;
     public int buttonNumber = 0;
+    public string answer;
     int i;
 
     private List<List<int>> gridSolution;
@@ -30,20 +31,7 @@ public class GridManager : MonoBehaviour
         line = GetComponent<LineRenderer>();
         buttonList = new Button[gridSize * gridSize];
         edgePropostion = new List<int>();
-        /*gridSolution = new List<List<int>>() {
-            new List<int>() {0, 1},
-            new List<int>() {1, 2},
-            new List<int>() {0, 7},
-            new List<int>() {7, 2}
-        };
-        gridSolution = new List<List<int>>()
-        {
-            new List<int>() {0, 1},
-            new List<int>() {1, 2},
-            new List<int>() {1, 4},
-            new List<int>() {4, 7}
-        };*/
-        gridSolution = GridSolutions("Triangle");
+        gridSolution = GridSolutions(answer);
         CreateGrid();
         DrawButtons();
         i = gridSize * gridSize;
@@ -176,8 +164,10 @@ public class GridManager : MonoBehaviour
                 return new List<List<int>>() {
                         new List<int>() {0, 1},
                         new List<int>() {1, 2},
-                        new List<int>() {0, 7},
-                        new List<int>() {7, 2}
+                        new List<int>() {0, 4},
+                        new List<int>() {4, 8},
+                        new List<int>() {5, 8},
+                        new List<int>() {2, 5}
                 };
             case "T":
                 return new List<List<int>>()
@@ -186,6 +176,96 @@ public class GridManager : MonoBehaviour
                         new List<int>() {1, 2},
                         new List<int>() {1, 4},
                         new List<int>() {4, 7}
+                };
+            case "Fleche":
+                return new List<List<int>>()
+                {
+                        new List<int>() {1, 3},
+                        new List<int>() {3, 6},
+                        new List<int>() {6, 4},
+                        new List<int>() {4, 8},
+                        new List<int>() {8, 5},
+                        new List<int>() {5, 1}
+                };
+            case "Usine":
+                return new List<List<int>>()
+                {
+                        new List<int>() {1, 3},
+                        new List<int>() {3, 6},
+                        new List<int>() {6, 7},
+                        new List<int>() {7, 8},
+                        new List<int>() {8, 5},
+                        new List<int>() {5, 2},
+                        new List<int>() {2, 4},
+                        new List<int>() {4, 1}
+                };
+            case "Truc":
+                return new List<List<int>>()
+                {
+                        new List<int>() {0, 1},
+                        new List<int>() {1, 4},
+                        new List<int>() {4, 2},
+                        new List<int>() {2, 5},
+                        new List<int>() {5, 8},
+                        new List<int>() {8, 7},
+                        new List<int>() {7, 3},
+                        new List<int>() {3, 0}
+                };
+            case "Parapluie":
+                return new List<List<int>>()
+                {
+                        new List<int>() {0, 1},
+                        new List<int>() {1, 5},
+                        new List<int>() {5, 8},
+                        new List<int>() {8, 4},
+                        new List<int>() {4, 7},
+                        new List<int>() {7, 6},
+                        new List<int>() {6, 3},
+                        new List<int>() {3, 4},
+                        new List<int>() {4, 0},
+                };
+            case "Spaceship":
+                return new List<List<int>>()
+                {
+                        new List<int>() {0, 1},
+                        new List<int>() {1, 2},
+                        new List<int>() {2, 7},
+                        new List<int>() {7, 5},
+                        new List<int>() {5, 8},
+                        new List<int>() {7, 3},
+                        new List<int>() {3, 6},
+                        new List<int>() {0, 7}
+                };
+            case "Pacman":
+                return new List<List<int>>()
+                {
+                        new List<int>() {2, 4},
+                        new List<int>() {1, 2},
+                        new List<int>() {4, 6},
+                        new List<int>() {6, 7},
+                        new List<int>() {7, 8},
+                        new List<int>() {8, 5},
+                        new List<int>() {5, 6},
+                        new List<int>() {4, 3},
+                        new List<int>() {3, 1}
+                };
+            case "V":
+                return new List<List<int>>()
+                {
+                        new List<int>() {2, 7},
+                        new List<int>() {7, 3}
+                };
+            case "M":
+                return new List<List<int>>()
+                {
+                        new List<int>() {0, 4},
+                        new List<int>() {4, 2},
+                        new List<int>() {2, 5},
+                        new List<int>() {5, 8},
+                        new List<int>() {8, 7},
+                        new List<int>() {7, 6},
+                        new List<int>() {6, 3},
+                        new List<int>() {3, 0}
                 };
         }
         return null;
