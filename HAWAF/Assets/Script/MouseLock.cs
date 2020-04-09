@@ -7,6 +7,6 @@ public class MouseLock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Screen.lockCursor = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
