@@ -29,9 +29,11 @@ public class Timer : MonoBehaviour
         float minutesLeft = ((float)desiredTimeInSeconds - t)/60;
 
         timerText.text = minutes + " minutes " + seconds + " restantes";
-
+        
         if(minutesLeft < 0)
         {
+            SoundManager.PlaySound("fan");
+
             loadingManager.LoadScene(gameOverSceneID);
         }
     }

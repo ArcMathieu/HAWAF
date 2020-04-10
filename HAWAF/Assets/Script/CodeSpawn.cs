@@ -14,12 +14,13 @@ public class CodeSpawn : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (eventManager.firstVideoOver == true) { 
-        if (other.CompareTag ("Player"))
+        if (eventManager.firstVideoOver == true)
         {
-            codeUI.SetActive(true);
-            gridManager.answer = answer;
-        }
+            if (other.CompareTag("Player"))
+            {
+                codeUI.SetActive(true);
+                gridManager.answer = answer;
+            }
         }
     }
     private void OnTriggerExit(Collider other)
