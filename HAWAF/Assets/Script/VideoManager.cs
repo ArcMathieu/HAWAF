@@ -17,8 +17,8 @@ public class VideoManager : MonoBehaviour
         
     }
 
-    public void StartVideo()
-    {
+    public void StartVideo(UnityEngine.Video.VideoClip myVideo) {
+        videoPlayer.clip = myVideo;
         videoPlayer.Play();
     }
 

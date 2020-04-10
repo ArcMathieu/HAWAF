@@ -6,6 +6,7 @@ using System.Linq;
 
 public class GridManager : MonoBehaviour
 {
+    public EventManager eventManager;
     public int gridSize;
     [HideInInspector] public Button[] buttonList;
     public GameObject buttonPrefab;
@@ -52,7 +53,7 @@ public class GridManager : MonoBehaviour
         if (solved)
         {
             Delete();
-            Debug.Log("Success");
+            eventManager.correctAnswer = true;
             Start();
         }
     }

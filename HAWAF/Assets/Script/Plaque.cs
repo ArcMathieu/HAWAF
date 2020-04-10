@@ -22,8 +22,8 @@ public class Plaque : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            videoManager.StartVideo();
-            lightManager.ChangeIntensity();
+            //videoManager.StartVideo();
+            lightManager.ChangeIntensity(lightManager.maxIntensity);
         }
     }
 }
