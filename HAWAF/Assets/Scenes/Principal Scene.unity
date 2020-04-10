@@ -482,7 +482,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 0.2
-  playerRotationSpeed: 10
+  playerRotationSpeed: 50
+  buttonNumber: 0
 --- !u!1 &438014119
 GameObject:
   m_ObjectHideFlags: 0

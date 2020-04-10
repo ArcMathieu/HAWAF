@@ -240,14 +240,14 @@ public class GridManager : MonoBehaviour
                 return new List<List<int>>()
                 {
                         new List<int>() {2, 4},
-                        new List<int>() {1, 2},
                         new List<int>() {4, 6},
                         new List<int>() {6, 7},
                         new List<int>() {7, 8},
                         new List<int>() {8, 5},
                         new List<int>() {5, 6},
-                        new List<int>() {4, 3},
-                        new List<int>() {3, 1}
+                        new List<int>() {6, 3},
+                        new List<int>() {3, 1},
+                        new List<int>() {1, 2}
                 };
             case "V":
                 return new List<List<int>>()
@@ -266,6 +266,18 @@ public class GridManager : MonoBehaviour
                         new List<int>() {7, 6},
                         new List<int>() {6, 3},
                         new List<int>() {3, 0}
+                };
+            case "Maison":
+                return new List<List<int>>()
+                {
+                        new List<int>() {1, 5},
+                        new List<int>() {5, 8},
+                        new List<int>() {8, 7},
+                        new List<int>() {7, 6},
+                        new List<int>() {6, 3},
+                        new List<int>() {3, 1},
+                        new List<int>() {3, 4},
+                        new List<int>() {4, 5}
                 };
         }
         return null;
