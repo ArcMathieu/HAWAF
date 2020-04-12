@@ -8,6 +8,8 @@ public class DebugScript : MonoBehaviour
     private float speed;
     private int rotateSpeed;
     private Vector3 _inputs = Vector3.zero;
+    public CodeSpawn tablette;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,15 +25,13 @@ public class DebugScript : MonoBehaviour
     void Update()
     {
         Move();
-        Jump();
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10, Color.green);
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out rc, Mathf.Infinity) && rc.collider.gameObject.tag == "UsableObjects")
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Destroy(rc.collider.gameObject);
-            }
-        }
+        //Jump();
+
+        //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10, Color.green);
+        //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out rc, 1.5f) && rc.collider.gameObject.tag == "UsableObjects")
+        //{
+            
+        //}
     }
 
     void Move()

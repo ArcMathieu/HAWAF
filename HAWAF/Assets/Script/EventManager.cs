@@ -24,6 +24,8 @@ public class EventManager : MonoBehaviour
     bool playBasketSound = false;
     bool playGlassSound = false;
     public GameObject photos;
+    public ParticleSystem elec;
+    public ParticleSystem water;
 
     // Update is called once per frame
 
@@ -57,6 +59,7 @@ public class EventManager : MonoBehaviour
                     }
                     turnOffLight = false;
                     lightManager.ChangeIntensity(8);
+                    elec.gameObject.SetActive(false);
                     Debug.Log("Racoon");
                     correctAnswer = false;
                     gameStage++;
@@ -74,15 +77,14 @@ public class EventManager : MonoBehaviour
                 codeSpawn.answer = "Usine";
                 if(correctAnswer == true)
                 {
-                    
-                    videoManager.StartVideo(myVideos[1]);
                     //launch animator root + pc j2
                     if(playPCSound == false) {
-                    SoundManager.PlaySound("pc");
+                        SoundManager.PlaySound("pc");
                         playPCSound = true;
                     }
                     myAnimators[0].SetBool("isTriggered", true);
                     myAnimators[1].SetBool("isTriggered", true);
+                    videoManager.StartVideo(myVideos[1]);
                     correctAnswer = false;
                     gameStage++;
                 }
@@ -99,7 +101,7 @@ public class EventManager : MonoBehaviour
                 {
                     Debug.Log("ours");
                     //mettre l'animation de la porte
-                    if(playDoorSound == false) { 
+                    if (playDoorSound == false) { 
                     SoundManager.PlaySound("door");
                         playDoorSound = true;
                     }
@@ -114,6 +116,8 @@ public class EventManager : MonoBehaviour
                 if (correctAnswer == true)
                 {
                     //lancer l'anim de fuite
+                    water.gameObject.SetActive(true);
+                    SoundManager.PlaySound("water");
                     correctAnswer = false;
                     gameStage++;
                 }
@@ -131,6 +135,7 @@ public class EventManager : MonoBehaviour
                     Debug.Log("Mamma mia");
                     //faire apparaître le PQ
                     myAnimators[3].SetBool("isTriggered", true);
+                    SoundManager.PlaySound("doorBell");
                     correctAnswer = false;
                     gameStage++;
                 }
@@ -141,6 +146,10 @@ public class EventManager : MonoBehaviour
                 if (correctAnswer == true)
                 {
                     //répare fuite
+                    water.gameObject.SetActive(false);
+                    SoundManager.PlaySound("waterStop");
+                    //envoie vidéo allumez vos télé
+                    videoManager.StartVideo(myVideos[2]);
                     correctAnswer = false;
                     gameStage++;
                 }
@@ -155,6 +164,7 @@ public class EventManager : MonoBehaviour
                 if (correctAnswer == true)
                 {
                     Debug.Log("Oh shit");
+                    //lancement vidéo fermez fenètre
                     videoManager.StartVideo(myVideos[3]);
                     correctAnswer = false;
                     gameStage++;
@@ -173,7 +183,6 @@ public class EventManager : MonoBehaviour
                     }
                     photos.SetActive(true);
                     myAnimators[4].SetBool("isTriggered", true);
-                    videoManager.StartVideo(myVideos[2]);
                     correctAnswer = false;
                     gameStage++;
                 }
@@ -190,6 +199,7 @@ public class EventManager : MonoBehaviour
                     Debug.Log("Adibou");
                     //lancer l'anim de la plante
                     myAnimators[5].SetBool("isTriggered", true);
+                    SoundManager.PlaySound("fairySound");
                     correctAnswer = false;
                     gameStage++;
                 }
@@ -220,8 +230,8 @@ public class EventManager : MonoBehaviour
                 if (correctAnswer == true)
                 {
                     videoManager.StartVideo(myVideos[5]);
+                    StartCoroutine(EndVideo());
                 }
-                StartCoroutine(EndVideo());
             }
             if (amIPlayer1 == false)
             {
@@ -252,17 +262,16 @@ public class EventManager : MonoBehaviour
                     playElecSound = true;
                 }
                 lightManager.ChangeIntensity(lightManager.lowestIntensity);
+                elec.gameObject.SetActive(true);
 
             }
-            
+
         }
         IEnumerator EndVideo()
         {
             yield return new WaitForSeconds(45);
 
             loadingManager.LoadScene(0);
-
-            
 
         }
     }

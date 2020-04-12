@@ -30,7 +30,12 @@ public class Timer : MonoBehaviour
 
         timerText.text = minutes + " minutes " + seconds + " restantes";
         
-        if(minutesLeft < 0)
+        if(minutesLeft < 3)
+        {
+            timerText.color = Color.red;
+        }else timerText.color = Color.white;
+
+        if (minutesLeft < 0)
         {
             SoundManager.PlaySound("fan");
 

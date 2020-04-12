@@ -17,11 +17,12 @@ public class Camera : MonoBehaviour
         Move();
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         RaycastHit rc;
-        if (Physics.Raycast (transform.position, forward, out rc, 100))
+        if (Physics.Raycast (transform.position, forward, out rc, 40))
         {
             if (rc.collider.gameObject.tag == "UsableObjects")
             {
-                rc.collider.gameObject.GetComponent<Glowing>().isHighlighted = true;
+                //rc.collider.gameObject.GetComponent<Glowing>().isHighlighted = true;
+                //Debug.Log("cam");
             }
         }
     }

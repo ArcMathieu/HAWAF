@@ -46,8 +46,7 @@ public class GridManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Delete();
-            Start();
+            Restart();
         }
 
         if (solved)
@@ -57,6 +56,12 @@ public class GridManager : MonoBehaviour
             SoundManager.PlaySound("GG");
             Start();
         }
+    }
+
+    public void Restart()
+    {
+        Delete();
+        Start();
     }
 
     void Delete()
@@ -164,20 +169,21 @@ public class GridManager : MonoBehaviour
         {
             case "Triangle":
                 return new List<List<int>>() {
-                        new List<int>() {0, 1},
-                        new List<int>() {1, 2},
-                        new List<int>() {0, 4},
-                        new List<int>() {4, 8},
-                        new List<int>() {5, 8},
-                        new List<int>() {2, 5}
+                    new List<int>() {0, 1},
+                    new List<int>() {1, 2},
+                    new List<int>() {0, 4},
+                    new List<int>() {4, 8},
+                    new List<int>() {5, 8},
+                    new List<int>() {2, 5}
                 };
             case "T":
                 return new List<List<int>>()
                 {
-                        new List<int>() {0, 1},
-                        new List<int>() {1, 2},
+
                         new List<int>() {1, 4},
-                        new List<int>() {4, 7}
+                        new List<int>() {0, 1},
+                        new List<int>() {4, 7},
+                        new List<int>() {1, 2}
                 };
             case "Fleche":
                 return new List<List<int>>()
@@ -224,7 +230,7 @@ public class GridManager : MonoBehaviour
                         new List<int>() {7, 6},
                         new List<int>() {6, 3},
                         new List<int>() {3, 4},
-                        new List<int>() {4, 0},
+                        new List<int>() {4, 0}
                 };
             case "Spaceship":
                 return new List<List<int>>()
@@ -254,8 +260,8 @@ public class GridManager : MonoBehaviour
             case "V":
                 return new List<List<int>>()
                 {
-                        new List<int>() {2, 7},
-                        new List<int>() {7, 3}
+                        new List<int>() {7, 3},
+                        new List<int>() {2, 7}
                 };
             case "M":
                 return new List<List<int>>()
